@@ -13,16 +13,21 @@
 #include <scene_state.h>
 #include "types.h"
 
-namespace flappy_bird {
-
+namespace flappy_bird
+{
 class game
 {
 public:
-  game();
-  void run(const controller& controller, const renderer& renderer);
+  game(const Uint32 target_frame_duration, std::size_t screen_width, std::size_t screen_height);
+  void run(controller& controller, renderer& renderer);
 
 private:
+  void proccessControl(const Control& control);
+  void createNewObstacles();
+  void deleteObstacles();
   sceneState scene_state_;
-
+  Uint32 target_frame_duration_;
+  std::size_t screen_width_;
+  std::size_t screen_heigth_;
 };
-}
+}  // namespace flappy_bird

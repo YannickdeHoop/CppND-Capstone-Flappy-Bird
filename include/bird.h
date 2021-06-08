@@ -8,7 +8,8 @@
 
 #include "types.h"
 
-namespace flappy_bird {
+namespace flappy_bird
+{
 class bird
 {
 public:
@@ -23,4 +24,4 @@ private:
   Pose pose_;
   double velocity_ = 0;
 };
-}
+}  // namespace flappy_bird

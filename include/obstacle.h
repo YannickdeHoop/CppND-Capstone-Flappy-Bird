@@ -13,12 +13,15 @@ namespace flappy_bird
 class obstacle
 {
 public:
-obstacle(const float width, const float heigth, Pose pose);
-void updatePose(const Pose& delta_pose);
-Pose getPose();
+  obstacle(const float width, const float heigth, Pose pose);
+  void updatePose(const Pose& delta_pose);
+  Pose getPose();
+  float getWidth();
+  float getHeigth();
 
 private:
   Pose pose_;
-
+  float width_;
+  float heigth_;
 };
-}
+}  // namespace flappy_bird

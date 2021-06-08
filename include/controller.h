@@ -8,14 +8,15 @@
 
 #include "types.h"
 
-namespace flappy_bird {
+namespace flappy_bird
+{
 class controller
 {
 public:
   controller();
-  Control handleInput() const;
+  Control handleInput();
 
 private:
-
+  bool last_state_ = false;
 };
-}
+}  // namespace flappy_bird

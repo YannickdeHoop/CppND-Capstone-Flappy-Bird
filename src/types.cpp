@@ -6,12 +6,13 @@
 
 #include <types.h>
 
-namespace  flappy_bird {
+namespace flappy_bird
+{
 //! note: We use tf2::Matrix3x3::getRPY here since is will find a solution in yaw first
 void getRPY(const Pose& pose, double& roll, double& pitch, double& yaw)
 {
   Eigen::Quaterniond q(pose.linear());
-  Eigen::Vector3d eulerAngle = q.matrix().eulerAngles(0,1,2);
+  Eigen::Vector3d eulerAngle = q.matrix().eulerAngles(0, 1, 2);
   roll = eulerAngle[0];
   pitch = eulerAngle[1];
   yaw = eulerAngle[2];
@@ -41,4 +42,4 @@ Vector getVector(const Pose& pose)
   return Vector(pose.translation().x(), pose.translation().y(), getYaw(pose));
 }
 }  // namespace pose2d
-}
+}  // namespace flappy_bird

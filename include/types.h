@@ -9,7 +9,8 @@
 #include <eigen3/Eigen/Core>
 #include <eigen3/Eigen/Geometry>
 
-namespace flappy_bird {
+namespace flappy_bird
+{
 //!
 //! \brief Orientation and position in 3D space
 //!
@@ -60,4 +61,4 @@ struct Control
   bool pressed = false;
   bool quit = false;
 };
-}
+}  // namespace flappy_bird

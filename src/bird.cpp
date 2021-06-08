@@ -6,16 +6,14 @@
 
 #include <bird.h>
 
-namespace flappy_bird {
-
-bird::bird(Pose initial_pose, double initial_velocity): pose_(initial_pose), velocity_(velocity_)
+namespace flappy_bird
 {
-
+bird::bird(Pose initial_pose, double initial_velocity) : pose_(initial_pose), velocity_(velocity_)
+{
 }
 
-bird::bird(Pose initial_pose): pose_(initial_pose)
+bird::bird(Pose initial_pose) : pose_(initial_pose)
 {
-
 }
 
 void bird::setPose(Pose pose)
@@ -30,7 +28,7 @@ void bird::setVelocity(double velocity)
 
 Pose bird::getPose()
 {
- return pose_;
+  return pose_;
 }
 
 double bird::getVelocity()
@@ -38,4 +36,4 @@ double bird::getVelocity()
   return velocity_;
 }
 
-}
+}  // namespace flappy_bird
