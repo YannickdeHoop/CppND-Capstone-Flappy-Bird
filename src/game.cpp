@@ -83,7 +83,7 @@ void Game::createNewObstacles()
       scene_state_.getObstacles().back().getPose().translation().x() + scene_state_.getObstacles().back().getWidth() <=
           screen_width_ - horizontal_pixels)
   {
-    int vertical_pixels = getRandomNumber(MIN_VERTICAL_PIXELS, MAX_VERTICAL_PIXELS);
+      int vertical_pixels = getRandomNumber(MIN_VERTICAL_PIXELS, MAX_VERTICAL_PIXELS);
     int obstacle_heigth = getRandomNumber(0, screen_heigth_ - vertical_pixels);
     Obstacle upper_obstacle =
         Obstacle(OBSTACLE_WIDTH, obstacle_heigth, pose2d::create(static_cast<double>(screen_width_), 0, 0));
