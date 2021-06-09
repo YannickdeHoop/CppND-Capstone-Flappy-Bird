@@ -60,5 +60,6 @@ struct Control
 {
   bool pressed = false;
   bool quit = false;
+  bool continue_game = false;
 };
 }  // namespace flappy_bird

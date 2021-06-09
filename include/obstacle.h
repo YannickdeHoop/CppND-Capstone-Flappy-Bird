@@ -10,10 +10,10 @@
 
 namespace flappy_bird
 {
-class obstacle
+class Obstacle
 {
 public:
-  obstacle(const float width, const float heigth, Pose pose);
+  Obstacle(const float width, const float heigth, Pose pose);
   void updatePose(const Pose& delta_pose);
   Pose getPose();
   float getWidth();

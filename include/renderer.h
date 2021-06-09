@@ -8,29 +8,28 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <scene_state.h>
+#include <SDL_ttf.h>
 
 namespace flappy_bird
 {
-class renderer
+class Renderer
 {
 public:
-  renderer(const size_t screen_width, const size_t screen_height, const size_t grid_width, const size_t grid_height,
-           const std::string& bird_image_path);
-  ~renderer();
-  void render(sceneState& scene_state);
+  Renderer(const size_t screen_width, const size_t screen_height);
+  ~Renderer();
+  void render(SceneState& scene_state);
 
 private:
-  void renderBird(bird bird_state);
-  void renderObstacle(obstacle obstacle_state);
-
+  void renderBird(Bird bird_state);
+  void renderObstacle(Obstacle obstacle_state);
+  void renderText();
   SDL_Window* sdl_window_;
   SDL_Renderer* sdl_renderer_;
   SDL_Texture* bird_texture_;
   SDL_Surface* bird_surface_;
+  TTF_Font* font_;
 
   const size_t screen_width_;
   const size_t screen_height_;
-  const size_t grid_width_;
-  const size_t grid_height_;
 };
 }  // namespace flappy_bird

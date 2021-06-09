@@ -8,32 +8,43 @@
 
 namespace flappy_bird
 {
-bird::bird(Pose initial_pose, double initial_velocity) : pose_(initial_pose), velocity_(velocity_)
+Bird::Bird(Pose initial_pose, double initial_velocity, int width, int heigth)
+  : pose_(initial_pose), velocity_(velocity_), width_(width), heigth_(heigth)
 {
 }
 
-bird::bird(Pose initial_pose) : pose_(initial_pose)
+Bird::Bird(Pose initial_pose) : pose_(initial_pose)
 {
 }
 
-void bird::setPose(Pose pose)
+void Bird::setPose(Pose pose)
 {
   pose_ = pose;
 }
 
-void bird::setVelocity(double velocity)
+void Bird::setVelocity(double velocity)
 {
   velocity_ = velocity;
 }
 
-Pose bird::getPose()
+Pose Bird::getPose()
 {
   return pose_;
 }
 
-double bird::getVelocity()
+double Bird::getVelocity()
 {
   return velocity_;
+}
+
+int Bird::getWidth()
+{
+  return width_;
+}
+
+int Bird::getHeigth()
+{
+  return heigth_;
 }
 
 }  // namespace flappy_bird

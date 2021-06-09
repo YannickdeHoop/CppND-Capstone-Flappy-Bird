@@ -15,17 +15,21 @@
 
 namespace flappy_bird
 {
-class game
+class Game
 {
 public:
-  game(const Uint32 target_frame_duration, std::size_t screen_width, std::size_t screen_height);
-  void run(controller& controller, renderer& renderer);
+  Game(const Uint32 target_frame_duration, std::size_t screen_width, std::size_t screen_height);
+  void run(Controller& controller, Renderer& renderer);
 
 private:
-  void proccessControl(const Control& control);
+  static int getRandomNumber(int min, int max);
+  void updateBird(const Control& control);
   void createNewObstacles();
   void deleteObstacles();
-  sceneState scene_state_;
+  bool checkCollision();
+  void waitUntilNextTick(const Uint32 frame_start);
+  void reset();
+  SceneState scene_state_;
   Uint32 target_frame_duration_;
   std::size_t screen_width_;
   std::size_t screen_heigth_;

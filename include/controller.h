@@ -10,10 +10,10 @@
 
 namespace flappy_bird
 {
-class controller
+class Controller
 {
 public:
-  controller();
+  Controller();
   Control handleInput();
 
 private:

@@ -8,7 +8,6 @@
 
 namespace flappy_bird
 {
-//! note: We use tf2::Matrix3x3::getRPY here since is will find a solution in yaw first
 void getRPY(const Pose& pose, double& roll, double& pitch, double& yaw)
 {
   Eigen::Quaterniond q(pose.linear());

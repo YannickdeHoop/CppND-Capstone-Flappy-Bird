@@ -10,19 +10,24 @@
 
 namespace flappy_bird
 {
-controller::controller()
+Controller::Controller()
 {
 }
 
-Control controller::handleInput()
+Control Controller::handleInput()
 {
   Control control;
   SDL_Event e;
   while (SDL_PollEvent(&e))
   {
-    if (e.key.keysym.sym == SDLK_ESCAPE)
+    if (e.key.keysym.sym == SDLK_ESCAPE || e.type == SDL_QUIT)
     {
       control.quit = true;
+    }
+    else if (e.type == SDL_KEYDOWN && e.key.keysym.scancode == SDL_SCANCODE_RETURN)
+    {
+      control.continue_game = true;
+      last_state_ = false;
     }
     else if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_SPACE)
     {

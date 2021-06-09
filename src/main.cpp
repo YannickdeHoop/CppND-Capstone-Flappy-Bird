@@ -19,9 +19,18 @@ constexpr std::size_t GRID_HEIGHT{ 16 };
 
 int main()
 {
-  flappy_bird::renderer renderer(SCREEN_WIDTH, SCREEN_HEIGHT, GRID_WIDTH, GRID_HEIGHT, "assets/bird.png");
-  flappy_bird::controller controller;
-  flappy_bird::game game(FRAME_DURATION, SCREEN_WIDTH, SCREEN_HEIGHT);
-  game.run(controller, renderer);
+  try
+  {
+    flappy_bird::Renderer renderer(SCREEN_WIDTH, SCREEN_HEIGHT);
+    flappy_bird::Controller controller;
+    flappy_bird::Game game(FRAME_DURATION, SCREEN_WIDTH, SCREEN_HEIGHT);
+    game.run(controller, renderer);
+  }
+  catch (const std::runtime_error& e)
+  {
+    std::cerr << e.what() << std::endl;
+    return -1;
+  }
+
   return 1;
 }

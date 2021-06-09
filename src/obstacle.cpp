@@ -5,29 +5,30 @@
 //
 
 #include <obstacle.h>
+#include <iostream>
 
 namespace flappy_bird
 {
-obstacle::obstacle(const float width, const float heigth, Pose pose) : width_(width), heigth_(heigth), pose_(pose)
+Obstacle::Obstacle(const float width, const float heigth, Pose pose) : width_(width), heigth_(heigth), pose_(pose)
 {
 }
 
-void obstacle::updatePose(const flappy_bird::Pose& delta_pose)
+void Obstacle::updatePose(const flappy_bird::Pose& delta_pose)
 {
   pose_ = pose_ * delta_pose;
 }
 
-Pose obstacle::getPose()
+Pose Obstacle::getPose()
 {
   return pose_;
 }
 
-float obstacle::getWidth()
+float Obstacle::getWidth()
 {
   return width_;
 }
 
-float obstacle::getHeigth()
+float Obstacle::getHeigth()
 {
   return heigth_;
 }

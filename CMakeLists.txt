@@ -16,10 +16,13 @@ find_package(SDL2_image REQUIRED)
 find_package(Eigen3 REQUIRED)
 
 configure_file(assets/bird.png assets/bird.png COPYONLY)
+configure_file(assets/sans.ttf assets/sans.ttf COPYONLY)
+
 include_directories(
   ${SDL2_INCLUDE_DIRS}
   ${SDL2_IMAGE_INCLUDE_DIRS}
-  {EIGEN3_INCLUDE_DIRS}
+  ${SDL2_TTF_INCLUDE_DIRS}
+  ${EIGEN3_INCLUDE_DIRS}
   include)
 
 add_definitions(${EIGEN3_DEFINITIONS})
@@ -33,4 +36,4 @@ add_executable(${PROJECT_NAME}
   src/obstacle.cpp
   src/renderer.cpp
   src/types.cpp)
-target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} SDL2_ttf)
