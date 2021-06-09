@@ -20,7 +20,7 @@ This is a capstone project for [Udacity C++ Nanodegree Program](https://www.udac
   ```
   apt-get install libsdl2-dev
   apt-get install libsdl2-image-dev
-  apt-get install libsdl2-tftf-dev
+  apt-get install libsdl2-ttf-dev
    ```
 * gcc/g++ >= 5.4
   * Linux: gcc / g++ is installed by default on most Linux distros
