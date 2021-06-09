@@ -5,7 +5,6 @@
 //
 
 #include <obstacle.h>
-#include <iostream>
 
 namespace flappy_bird
 {

@@ -14,8 +14,6 @@ constexpr std::size_t FRAMES_PER_SECOND{ 60 };
 constexpr std::size_t FRAME_DURATION{ 1000 / FRAMES_PER_SECOND };
 constexpr std::size_t SCREEN_WIDTH{ 1250 };
 constexpr std::size_t SCREEN_HEIGHT{ 800 };
-constexpr std::size_t GRID_WIDTH{ 25 };
-constexpr std::size_t GRID_HEIGHT{ 16 };
 
 int main()
 {

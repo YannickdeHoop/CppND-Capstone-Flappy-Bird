@@ -6,7 +6,6 @@
 
 #include <controller.h>
 #include <SDL.h>
-#include <iostream>
 
 namespace flappy_bird
 {

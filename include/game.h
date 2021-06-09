@@ -8,9 +8,10 @@
 
 #include <bird.h>
 #include <controller.h>
-#include <renderer.h>
 #include <obstacle.h>
+#include <renderer.h>
 #include <scene_state.h>
+
 #include "types.h"
 
 namespace flappy_bird

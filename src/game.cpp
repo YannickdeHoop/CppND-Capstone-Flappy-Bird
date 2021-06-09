@@ -9,18 +9,21 @@
 #include <time.h>
 #include <random>
 
-constexpr double BIRD_ACCELERATION = 100000;
-constexpr double PIXELS_PER_TICK = 5;
+// pixels per seconde
+constexpr double JUMP_SPEED = 600;
+constexpr double FALL_SPEED = 400;
+constexpr double MOVE_OBSTACLE_PIXELS_PER_TICK = 5;
 constexpr int MIN_HORIZONTAL_PIXELS = 200;
 constexpr int MAX_HORIZONTAL_PIXELS = 400;
 constexpr int MIN_VERTICAL_PIXELS = 200;
 constexpr int MAX_VERTICAL_PIXELS = 500;
 constexpr int OBSTACLE_WIDTH = 200;
-
+constexpr double BIRD_INITIAL_X = 100.0;
+constexpr double BIRD_INITIAL_Y = 0.0;
 namespace flappy_bird
 {
 Game::Game(const Uint32 target_frame_duration, const std::size_t screen_width, const std::size_t screen_height)
-  : scene_state_(SceneState((Bird(pose2d::create(100, 0, 0))), -400.0, 700.0))
+  : scene_state_(SceneState(Bird(pose2d::create(BIRD_INITIAL_X, BIRD_INITIAL_Y, 0))))
   , target_frame_duration_(target_frame_duration)
   , screen_width_(screen_width)
   , screen_heigth_(screen_height)
@@ -48,7 +51,7 @@ void Game::run(Controller& controller, Renderer& renderer)
       updateBird(control);
       createNewObstacles();
       deleteObstacles();
-      scene_state_.updateObstacles(pose2d::create(-PIXELS_PER_TICK, 0, 0));
+      scene_state_.updateObstacles(pose2d::create(-MOVE_OBSTACLE_PIXELS_PER_TICK, 0, 0));
       scene_state_.setCollision(checkCollision());
     }
     renderer.render(scene_state_);
@@ -67,11 +70,11 @@ void Game::updateBird(const Control& control)
 {
   if (control.pressed)
   {
-    scene_state_.updateBird(100000.0, target_frame_duration_ / 1000.0);
+    scene_state_.updateBird(pose2d::create(0, -JUMP_SPEED * (target_frame_duration_ / 1000.0), 0), -JUMP_SPEED);
   }
   else
   {
-    scene_state_.updateBird(-BIRD_ACCELERATION, target_frame_duration_ / 1000.0);
+    scene_state_.updateBird(pose2d::create(0, FALL_SPEED * (target_frame_duration_ / 1000.0), 0), FALL_SPEED);
   }
 }
 
@@ -144,7 +147,7 @@ void Game::waitUntilNextTick(const Uint32 frame_start)
 
 void Game::reset()
 {
-  scene_state_ = SceneState((Bird(pose2d::create(100, 0, 0))), -150.0, 200.0);
+  scene_state_ = SceneState(Bird(pose2d::create(BIRD_INITIAL_X, BIRD_INITIAL_Y, 0)));
 }
 
 int Game::getRandomNumber(int min, int max)

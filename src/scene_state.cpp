@@ -9,8 +9,8 @@
 
 namespace flappy_bird
 {
-SceneState::SceneState(Bird bird, double min_velocity, double max_velocity)
-  : bird_(bird), min_velocity_(min_velocity), max_velocity_(max_velocity)
+SceneState::SceneState(Bird bird)
+  : bird_(bird)
 {
 }
 
@@ -19,13 +19,9 @@ void SceneState::addObstacle(Obstacle obstacle)
   obstacles_.push_back(obstacle);
 }
 
-void SceneState::updateBird(const double acceleration, const double dt)
+void SceneState::updateBird(Pose delta_pose, double velocity)
 {
-  double velocity = bird_.getVelocity() + -acceleration * pow(dt, 2);
-  limit_velocity(velocity);
-  double y = bird_.getPose().translation().y() + velocity * dt;
-  bird_.setPose(pose2d::create(bird_.getPose().translation().x(), y, 0));
-
+  bird_.setPose(bird_.getPose() * delta_pose);
   bird_.setVelocity(velocity);
 }
 
@@ -34,18 +30,6 @@ void SceneState::updateObstacles(const Pose& delta_pose)
   for (auto& obstacle : obstacles_)
   {
     obstacle.updatePose(delta_pose);
-  }
-}
-
-void SceneState::limit_velocity(double& velocity)
-{
-  if (-velocity > max_velocity_)
-  {
-    velocity = -max_velocity_;
-  }
-  else if (-velocity < min_velocity_)
-  {
-    velocity = -min_velocity_;
   }
 }
 
