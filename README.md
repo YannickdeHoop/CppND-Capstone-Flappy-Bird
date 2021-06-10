@@ -47,6 +47,9 @@ The repo contains:
 3. Compile: `cmake .. && make`
 4. Run it: `./flappy_bird`
 
+## Rubric
+
+__README (All Rubric Points REQUIRED)__
 |DONE | CRITERIA | MEETS SPECIFICATIONS| WHERE |
 |-- | -- | --| -- |
 | :heavy_check_mark: | A README with instructions is included with the project |The README is included with the project and has instructions for building/running the project. If any additional libraries are needed to run the project, these are indicated with cross-platform installation instructions. You can submit your writeup as markdown or pdf.| |
