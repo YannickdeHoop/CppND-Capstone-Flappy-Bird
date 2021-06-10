@@ -12,7 +12,6 @@ project(flappy_bird)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
 find_package(SDL2 REQUIRED)
-find_package(SDL2_image REQUIRED)
 find_package(Eigen3 REQUIRED)
 
 configure_file(assets/bird.png assets/bird.png COPYONLY)
@@ -36,4 +35,4 @@ add_executable(${PROJECT_NAME}
   src/obstacle.cpp
   src/renderer.cpp
   src/types.cpp)
-target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} SDL2_ttf)
+target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} SDL2_image SDL2_ttf)

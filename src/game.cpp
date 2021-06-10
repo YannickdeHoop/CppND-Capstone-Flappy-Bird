@@ -32,6 +32,7 @@ Game::Game(const Uint32 target_frame_duration, const std::size_t screen_width, c
 
 void Game::run(Controller& controller, Renderer& renderer)
 {
+  // State machine which runs the game
   Uint32 frame_start;
   Control control;
 

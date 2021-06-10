@@ -85,7 +85,6 @@ void Renderer::render(SceneState& scene_state)
   }
   SDL_RenderPresent(sdl_renderer_);
 
-  // TODO: render obstacle states.
 }
 
 void Renderer::renderBird(Bird bird_state)
